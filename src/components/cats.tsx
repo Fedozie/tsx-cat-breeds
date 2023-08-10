@@ -14,13 +14,12 @@ const Cats = () => {
 
   useEffect(() => {
     const strToNumAvg = (arr: any[]): number => {
-      
-      let newNumArr: number[] = arr.map ((str: string) => {
+      let newNumArr: number[] = arr.map((str: string) => {
         let noSpacedStr: string = str.replace(/ /g, ""); //eliminates whitespace
         let numberedStr: string = noSpacedStr.replace("_", "."); //convert hyphen to dot
         parseFloat(numberedStr);
       });
-      
+
       let numArrSum = newNumArr?.reduce((acc, curr) => acc + curr, 0);
       let numArrAvg = numArrSum / newNumArr?.length;
       let newAvg = numArrAvg.toFixed(2);
@@ -60,13 +59,17 @@ const Cats = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Cats Paradise</h2>
-      <h5>There are 67 Cat breeds</h5>
-      <p>
-        On an average, a cat can weigh {catObject.weight} kg and they can live
-        up to {catObject.lifeSpan} years.
-      </p>
+    <div className="w-6/12 m-auto mt-8 p-12 border-solid border-2 border-sky-500 rounded-lg">
+      <div className="bg-slate-500 p-2">
+        <h2 className="text-3xl font-bold">Cats Paradise</h2>
+      </div>
+      <div className = "p-2">
+        <h5>There are 67 Cat breeds</h5>
+        <p>
+          On an average, a cat can weigh {catObject.weight} kg and they can live
+          up to {catObject.lifeSpan} years.
+        </p>
+      </div>
     </div>
   );
 };
