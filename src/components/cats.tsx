@@ -13,26 +13,26 @@ const Cats = () => {
   });
 
   useEffect(() => {
-    let weights: any[] = [];
-    let lifeSpans: any[] = [];
-
-    const strToNumAvg = (arr: any[]) => {
-      let strToNumArr = arr.map((str) => {
-        let noSpacedStr = str.replace(/ /g, ""); //eliminates whitespace
-        let numberedStr = noSpacedStr.replace("_", "."); //convert hyphen to dot
-        let newNumArr = parseFloat(numberedStr);
-        return newNumArr;
+    const strToNumAvg = (arr: any[]): number => {
+      
+      let newNumArr: number[] = arr.map ((str: string) => {
+        let noSpacedStr: string = str.replace(/ /g, ""); //eliminates whitespace
+        let numberedStr: string = noSpacedStr.replace("_", "."); //convert hyphen to dot
+        parseFloat(numberedStr);
       });
-      let numArrSum = strToNumArr?.reduce((acc, curr) => acc + curr, 0);
-      let numArrAvg = numArrSum / strToNumArr?.length;
-      let newAvg = parseFloat(numArrAvg.toFixed(2));
-      return newAvg;
+      
+      let numArrSum = newNumArr?.reduce((acc, curr) => acc + curr, 0);
+      let numArrAvg = numArrSum / newNumArr?.length;
+      let newAvg = numArrAvg.toFixed(2);
+      return parseFloat(newAvg);
     };
 
     const loadData = async () => {
       await axios
         .get("https://api.thecatapi.com/v1/breeds")
         .then((res) => {
+          let weights: any[] = [];
+          let lifeSpans: any[] = [];
           let arrayCats = res.data;
 
           //Getting the average weights of the cat breeds
