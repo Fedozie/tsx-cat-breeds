@@ -59,13 +59,13 @@ const Cats = () => {
   }, []);
 
   return (
-    <div className="w-6/12 m-auto mt-8 p-12 border-solid border-2 border-sky-500 rounded-lg">
-      <div className="bg-slate-500 p-2">
+    <div className="w-6/12 mx-auto p-12 border-solid border-2 border-sky-400 rounded-lg">
+      <div className="bg-gradient-to-t from-sky-300 to-sky-300 p-2 rounded-md">
         <h2 className="text-3xl font-bold">Cats Paradise</h2>
       </div>
       <div className = "p-2">
-        <h5>There are 67 Cat breeds</h5>
-        <p>
+        <h5 className="text-sky-400/100">There are 67 Cat breeds</h5>
+        <p className="text-sky-400/100">
           On an average, a cat can weigh {catObject.weight} kg and they can live
           up to {catObject.lifeSpan} years.
         </p>
