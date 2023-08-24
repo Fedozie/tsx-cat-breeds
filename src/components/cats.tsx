@@ -14,10 +14,10 @@ const Cats = () => {
 
   useEffect(() => {
     const strToNumAvg = (arr: any[]): number => {
-      let newNumArr: number[] = arr.map((str: string) => {
+      const newNumArr: number[] = arr?.map((str: string) => {
         let noSpacedStr: string = str.replace(/ /g, ""); //eliminates whitespace
         let numberedStr: string = noSpacedStr.replace("_", "."); //convert hyphen to dot
-        parseFloat(numberedStr);
+        return parseFloat(numberedStr);
       });
 
       let numArrSum = newNumArr?.reduce((acc, curr) => acc + curr, 0);
@@ -59,8 +59,8 @@ const Cats = () => {
   }, []);
 
   return (
-    <div className="w-6/12 mx-auto p-12 border-solid border-2 border-sky-400 rounded-lg">
-      <div className="bg-gradient-to-t from-sky-300 to-sky-300 p-2 rounded-md">
+    <div className="w-6/12 mx-auto p-12 border-solid border-2 border-sky-400 rounded-lg bg-opacity-500">
+      <div className="bg-red-500 p-2 rounded-md bg-opacity-50">
         <h2 className="text-3xl font-bold">Cats Paradise</h2>
       </div>
       <div className = "p-2">
